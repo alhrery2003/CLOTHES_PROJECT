@@ -1,0 +1,54 @@
+﻿@model Employee
+@{
+    SelectList DeptOptions = new SelectList(ViewBag.DepartmentList, "DNUMBER", "DName");
+    SelectList SupsOptions = new SelectList(ViewBag.SUPS,"ID","Name");
+}
+
+<form method="post" asp-action="SaveEmployee" asp-controller="Employee">
+    <div class="form-group">
+        <label asp-for="Fname">First Name</label>
+        <input class="form-control" asp-for="Fname" />
+        <span asp-validation-for="Fname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Lname">Last Name</label>
+        <input class="form-control" asp-for="Lname" />
+        <span asp-validation-for="Lname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SUPERSSN">Supervisor</label>
+        <select class="form-control" asp-for="SUPERSSN" asp-items="SupsOptions">
+            <option value="null">No Supervisor</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Sex"></label>
+        <select class="form-control" asp-for="Sex">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+        <span asp-validation-for="Sex" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input class="form-control" asp-for="Salary" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bdate">Birth Date</label>
+        <input class="form-control" asp-for="Bdate" />
+        <span asp-validation-for="Bdate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DNUM">Department</label>
+        <select class="form-control" asp-for="DNUM" asp-items="DeptOptions"></select>
+    </div>
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Add"/>
+</form>

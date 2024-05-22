@@ -1,0 +1,38 @@
+﻿@model WORKS_ON
+
+@{
+    ViewData["Title"] = "ProjectEmployees";
+}
+
+<h1>Project : @ViewBag.PRO.Pname </h1>
+
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        @*<th>Project</th>*@
+        <th>Employees in This Project</th>
+        <th>Working Hours</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in ViewBag.EMPS)
+    {
+        <tr>
+            @*<td>@ViewBag.PRO.Pname</td>*@
+            <td>@(e.Employee.Fname + " " + e.Employee.Lname)</td>
+            <td>@e.WorkingHours</td>
+            <td>
+                <form method="post" asp-action="UnAssignProjectFromEmployee" asp-controller="Works_On">
+                    <input type="hidden" asp-for="ESSN" value="@e.Employee.SSN" />
+                    <input type="hidden" asp-for="PNO" value="@ViewBag.PRO.PNUMBER" />
+                    <input type="hidden" asp-for="Hours" value="@e.WorkingHours" />
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Project?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

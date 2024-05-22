@@ -1,0 +1,37 @@
+﻿@model List<Employee>
+
+<td><a asp-action="NewEmployee" asp-controller="Employee" class="btn btn-outline-info">Add New Employee</a></td>
+<br />
+<br />
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Action 3</th>
+        <th>Projects</th>
+        <th>Dependent</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.SSN</td>
+            <td>@(e.Fname +" "+ e.Lname)</td>
+            <td><a asp-action="DetailsEmployee" asp-controller="Employee" asp-route-Id="@e.SSN" class="btn btn-outline-dark">Details</a></td>
+            <td><a asp-action="EditEmployee" asp-controller="Employee" asp-route-Id="@e.SSN" class="btn btn-outline-info">Edit</a></td>
+            <td><a asp-action="DeleteEmployee" asp-controller="Employee" asp-route-Id="@e.SSN" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this Employee?')">Delete</a></td>
+            <td><a asp-action="EmployeeProjects" asp-controller="Employee" asp-route-Id="@e.SSN" class="btn btn-outline-warning">Projects</a></td>
+            <td><a asp-action="DependentDetails" asp-controller="Dependent" asp-route-Id="@e.SSN" class="btn btn-outline-warning">Dependent</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+

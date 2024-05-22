@@ -1,0 +1,12 @@
+﻿@model Employee
+
+
+<form method="post" asp-action="FindEmployeeByID" asp-controller="Works_On" >
+    <div class="form-group">
+        <label asp-for="SSN">Employee ID</label>
+        <input class="form-control" asp-for="SSN" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="Search" />
+</form>
+
+

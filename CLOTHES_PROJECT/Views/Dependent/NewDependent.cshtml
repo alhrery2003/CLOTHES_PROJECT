@@ -1,0 +1,46 @@
+﻿@model Dependent
+@{
+    SelectList EmpsOptions = new SelectList(ViewBag.DEPEMPS, "ID", "Name");
+}
+
+<form method="post" asp-action="SaveNewDependent" asp-controller="Dependent">
+    <div class="form-group">
+        <label asp-for="ESSN">Employee of The Dependent</label>
+        <select class="form-control" asp-for="ESSN" asp-items="EmpsOptions"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Dependent_Name"></label>
+        <input class="form-control" asp-for="Dependent_Name" />
+        <span asp-validation-for="Dependent_Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Sex"></label>
+        <select class="form-control" asp-for="Sex">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bdate">Birth Date</label>
+        <input class="form-control" asp-for="Bdate" />
+        <span asp-validation-for="Bdate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Relationship">Relationship with Employee</label>
+        <select class="form-control" asp-for="Relationship">
+            <option value="Brother">Brother</option>
+            <option value="Sister">Sister</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="Son">Son</option>
+            <option value="Daughter">Daughter</option>
+            <option value="Uncle">Uncle</option>
+            <option value="Aunt">Father</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Add" />
+</form>

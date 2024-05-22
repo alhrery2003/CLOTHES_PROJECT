@@ -1,0 +1,32 @@
+﻿@model Project
+<figure class="text-center">
+    <h1 style="color:midnightblue">
+        Project @Model.Pname
+    </h1>
+    <br />
+</figure>
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>Employee Name</th>
+        <th>Working Hours Per Month</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var e in ViewBag.ProjectEmps)
+    {
+        <tr>
+            <td>@(e.Employee.Fname + " " + e.Employee.Lname)</td>
+            <td>@e.WorkingHours</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<figure class="text-center">
+    <br />
+    <a asp-action="Index" asp-controller="Project" class="btn btn-outline-dark">Back To Projects</a>
+
+</figure>

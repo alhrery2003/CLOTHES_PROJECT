@@ -1,0 +1,33 @@
+﻿@*@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alert View</title>
+</head>
+<body>
+    <script>
+        alert("This Employee is already Assigned to This Project");
+        window.location.href = '@Url.Action("Index","Works_On")';
+    </script>
+</body>
+</html>*@
+
+@model Employee
+
+<form method="post" asp-action="FindEmployeeByID" asp-controller="Works_On" >
+    <input type="hidden" asp-for="SSN" value="@Model.SSN" />
+    <input type="hidden" asp-for="Fname" value="@Model.Fname" />
+    <input type="hidden" asp-for="Lname" value="@Model.Lname" />    
+    <figure class="text-center">
+        <h1 style="color:midnightblue">
+            @(Model.Fname + " " + Model.Lname) is already Assigned to @ViewBag.PRO.Pname
+        </h1>
+        <br />
+        <br />
+        <input type="submit" class="btn btn-primary" value="OK" />
+    </figure>
+</form>

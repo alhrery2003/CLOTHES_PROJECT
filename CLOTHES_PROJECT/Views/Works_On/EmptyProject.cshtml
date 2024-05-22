@@ -1,0 +1,13 @@
+﻿@model Project
+
+<figure class="text-center">
+    <h1 style="color:midnightblue">
+        There is No Employees Assigned To Project : @Model.Pname
+    </h1>
+    <br/>
+    <a asp-controller="Works_On" asp-action="SearchProjectByID" class="btn btn-outline-dark">Search Another Project By ID</a>
+    <br/>
+    <br />
+    <br />
+    <a asp-controller="Works_On" asp-action="DealWithEmployees" class="btn btn-outline-dark">Assign Specific Employee</a>
+</figure>

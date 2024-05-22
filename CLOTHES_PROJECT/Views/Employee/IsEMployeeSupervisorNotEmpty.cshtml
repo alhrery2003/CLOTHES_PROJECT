@@ -1,0 +1,17 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alert View</title>
+</head>
+<body>
+    <script>
+        alert("This Employee is a Supervisor of another Employee, Please Change The Employee's Supervisor to Delete The Selected Employee");
+        window.location.href = '@Url.Action("Index","Employee")';
+    </script>
+</body>
+</html>

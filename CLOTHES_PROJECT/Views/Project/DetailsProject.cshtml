@@ -1,0 +1,28 @@
+﻿@model Project
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>Project Number</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Project Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.PNUMBER</td>
+        <td>@Model.Pname</td>
+        <td>@Model.Plocation</td>
+        <td>@ViewBag.Department.DName</td>
+
+    </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <br />
+    <br />
+    <a asp-action="Index" asp-controller="Project" class="btn btn-outline-info">Back To Projects</a>
+</div>

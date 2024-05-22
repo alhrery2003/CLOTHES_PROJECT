@@ -1,0 +1,30 @@
+﻿@model Department
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>DLocation</th>
+        <th>MANAGER</th>
+        <th>MANAGER Start Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>@Model.DNUMBER</td>
+        <td>@Model.DName</td>
+        <td>@Model.DLocation</td>
+        <td>@(ViewBag.Manager.Fname + " " + ViewBag.Manager.Lname)</td>
+        <td>@Model.MGRStartDate</td>
+
+    </tr>
+    </tbody>
+</table>
+
+<div class="text-center">
+    <br />
+    <br />
+    <a asp-action="Index" asp-controller="Department" class="btn btn-outline-info">Back To Departments</a>
+</div>

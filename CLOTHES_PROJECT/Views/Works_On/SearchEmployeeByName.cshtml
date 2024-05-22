@@ -1,0 +1,17 @@
+﻿@model Employee
+
+
+
+<form method="post" asp-action="FindEmployeeByName" asp-controller="Works_On">
+    <div class="form-group">
+        <label asp-for="Fname">First Name</label>
+        <input class="form-control" asp-for="Fname" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Lname">Last Name</label>
+        <input class="form-control" asp-for="Lname" />
+    </div>
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Search" />
+</form>

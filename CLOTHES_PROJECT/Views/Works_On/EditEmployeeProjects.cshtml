@@ -1,0 +1,25 @@
+﻿@model WORKS_ON
+@{
+    SelectList ProsOptions = new SelectList(ViewBag.PROS, "PNUMBER", "Pname");
+}
+
+<form method="post" asp-action="SaveEditAssignment" asp-controller="Works_On" asp-route-Id="@Model.PNO">
+    <div class="form-group">
+        <label asp-for="ESSN">Employee Name</label>
+        <select class="form-control" asp-for="ESSN">
+            <option value="@ViewBag.EMP.SSN">@(ViewBag.EMP.Fname + " " + ViewBag.EMP.Lname)</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PNO">Projects</label>
+        <select class="form-control" asp-for="PNO" asp-items="ProsOptions"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Hours">Working Hours Per Month</label>
+        <input class="form-control" asp-for="Hours" />
+        <span asp-validation-for="Hours" class="text-danger"></span>
+    </div>
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to Update this Employee?')">Update</button>
+</form>

@@ -1,0 +1,31 @@
+﻿@model List<Project>
+<td><a asp-action="NewProject" asp-controller="Project" class="btn btn-outline-info">Add New Project</a></td>
+<br />
+<br />
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>Project Number</th>
+        <th>Name</th>
+        <th>Action 1</th>
+        <th>Action 2</th>
+        <th>Action 3</th>
+        <th>Employees In Project</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.PNUMBER</td>
+            <td>@p.Pname</td>
+            <td><a asp-action="DetailsProject" asp-controller="Project" asp-route-Id="@p.PNUMBER" class="btn btn-outline-dark">Details</a></td>
+            <td><a asp-action="EditProject" asp-controller="Project" asp-route-Id="@p.PNUMBER" class="btn btn-outline-info">Edit</a></td>
+            <td><a asp-action="DeleteProject" asp-controller="Project" asp-route-Id="@p.PNUMBER" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this Project')">Delete</a></td>
+            <td><a asp-action="ProjectEmployees" asp-controller="Project" asp-route-Id="@p.PNUMBER" class="btn btn-outline-warning">Employees</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

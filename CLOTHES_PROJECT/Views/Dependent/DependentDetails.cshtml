@@ -1,0 +1,38 @@
+﻿@model Dependent
+
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+    <tr>
+        <th>Employee of The Dependent</th>
+        <th>Dependent Name</th>
+        <th>Sex</th>
+        <th>Birth Date</th>
+        <th>Relationship with Employee</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td style="color:red">@(ViewBag.DependentEmployee.Fname + " " + ViewBag.DependentEmployee.Lname)</td>
+        <td>@Model.Dependent_Name</td>
+        <td>@Model.Sex</td>
+        <td>@Model.Bdate</td>
+        <td>@Model.Relationship</td>
+    </tr>
+    </tbody>
+
+</table>
+
+<div class="text-center">
+    <br />
+    <br />
+    <a asp-action="Index" asp-controller="Employee" class="btn btn-outline-info">Go To Employees</a>
+    <br />
+    <br />
+    <a asp-action="Index" asp-controller="Dependent" class="btn btn-outline-info">Go To Dependents</a>
+</div>
+
+
+

@@ -1,0 +1,20 @@
+﻿@model Employee
+
+<figure class="text-center">
+    <h1 style="color:midnightblue">
+        There is No Projects Assigned To Employee : @(Model.Fname+" "+Model.Lname)
+    </h1>
+    <br />
+    <a asp-controller="Works_On" asp-action="SearchEmployeeByID" class="btn btn-outline-dark">Search Another Employee By ID</a>
+    <br />
+    <br />
+    <br />
+    <a asp-controller="Works_On" asp-action="SearchEmployeeByName" class="btn btn-outline-dark">Search Another Employee By Name</a>
+    <br />
+    <br />
+    <br />
+    <a asp-controller="Works_On" asp-action="AssignEmployeeToProject" class="btn btn-outline-info" asp-route-Id="@Model.SSN">Assign @(Model.Fname + " " + Model.Lname) To New Project</a>
+    <br />
+    <br />
+    <br />
+</figure>

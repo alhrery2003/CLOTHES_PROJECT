@@ -1,0 +1,35 @@
+﻿@model List<Dependent>
+
+<td><a asp-action="NewDependent" asp-controller="Dependent" class="btn btn-outline-info">Add New Dependent</a></td>
+<br />
+<br />
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action1</th>
+        <th>Action2</th>
+        <th>Action3</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.ESSN</td>
+            <td>@d.Dependent_Name</td>
+            <td><a asp-action="DependentDetails" asp-controller="Dependent" asp-route-Id="@d.ESSN" class="btn btn-outline-dark">Details</a></td>
+            <td><a asp-action="EditDependent" asp-controller="Dependent" asp-route-Id="@d.ESSN" class="btn btn-outline-info">Edit</a></td>
+            <td><a asp-action="DeleteDependent" asp-controller="Dependent" asp-route-Id="@d.ESSN" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this dependent?')">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <br />
+    <br />
+    <a asp-action="Index" asp-controller="Home" class="btn btn-outline-info">Back To Home</a>
+</div>

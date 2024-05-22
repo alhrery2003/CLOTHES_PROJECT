@@ -1,0 +1,31 @@
+﻿@model List<Department>
+
+<td><a asp-action="NewDepartment" asp-controller="Department" class="btn btn-outline-info">Add New Department</a></td>
+<br />
+<br />
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action1</th>
+        <th>Action2</th>
+        <th>Action3</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.DNUMBER</td>
+            <td>@d.DName</td>
+            <td><a asp-action="DetailsDepartment" asp-controller="Department" asp-route-Id="@d.DNUMBER" class="btn btn-outline-info">Details</a></td>
+            <td><a asp-action="EditDepartment" asp-controller="Department" asp-route-Id="@d.DNUMBER" class="btn btn-outline-info">Edit</a></td>
+            <td><a asp-action="DeleteDepartment" asp-controller="Department" asp-route-Id="@d.DNUMBER" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this Department?')">Delete</a></td>
+
+        </tr>
+    }
+    </tbody>
+</table>

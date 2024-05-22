@@ -1,0 +1,59 @@
+﻿@model WORKS_ON
+@{
+    ViewData["Title"] = "FindEmployeeByName";
+}
+
+<h1>Employee : @(ViewBag.EMP.Fname + " " + ViewBag.EMP.Lname)</h1>
+<br />
+<br />
+
+<a asp-action="AssignEmployeeToProject" asp-controller="Works_On" asp-route-Id="@ViewBag.EMP.SSN" class="btn btn-outline-warning">Assign @(ViewBag.EMP.Fname + " " + ViewBag.EMP.Lname) To New Project</a>
+
+
+
+<table class="table table-striped mb-0">
+    <thead style="background-color: #002d72; color:#f5f7fa;">
+        <tr>
+        <th>Projects Assigned to This Employee</th>
+        <th>Working Hours</th>
+        <th>Action1</th>
+        <th>Action2</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var p in ViewBag.PROS)
+    {
+        <tr>
+            <td>@p.Project.Pname</td>
+            <td>@p.WorkingHours</td>
+            <td>
+                <form method="post" asp-action="EditEmployeeProjects" asp-controller="Works_On">
+                    <input type="hidden" asp-for="ESSN" value="@ViewBag.EMP.SSN" />
+                    <input type="hidden" asp-for="PNO" value="@p.Project.PNUMBER" />
+                    <input type="hidden" asp-for="Hours" value="@p.WorkingHours" />
+                    <button type="submit" class="btn btn-info">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form method="post" asp-action="UnAssignEmployeeFromProject" asp-controller="Works_On">
+                    <input type="hidden" asp-for="ESSN" value="@ViewBag.EMP.SSN" />
+                    <input type="hidden" asp-for="PNO" value="@p.Project.PNUMBER" />
+                    <input type="hidden" asp-for="Hours" value="@p.WorkingHours" />
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to Unassign This Employee from this Project')">Unassign</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <br />
+    <br />
+    <br />
+    <br />
+    <a asp-action="SearchEmployeeByID" asp-controller="Works_On" class="btn btn-outline-dark">Search Another Employee By ID</a>
+    <br />
+    <br />
+    <a asp-action="SearchEmployeeByName" asp-controller="Works_On" class="btn btn-outline-dark">Search Another Employee By Name</a>
+</div>
