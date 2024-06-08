@@ -26,30 +26,31 @@ Clothes Company is a web application built with MVC architecture using .NET 6.0 
 
 1. Clone the repository:
 
-bash
-   git clone https://github.com/alhrery2003/CLOTHES_PROJECT.git
+   bash
+   git clone https://github.com/alhrery2003/CLOTHES_PROJECTgit
    cd CLOTHES_PROJECT
-
+   
 
 2. Open the project in Visual Studio or your preferred code editor.
 
 3. Restore the NuGet packages:
 
-bash
-   dotnet restore
-
+   bash
+      dotnet restore
+   
 
 4. Update the database connection string in appsettings.json to match your SQL Server configuration.
 5. Apply database migrations:
 
-bash
-   dotnet ef database update
+   bash
+      dotnet ef database update
+   
 
 6. Build the project:
 
-bash
-   dotnet build
-
+   bash
+      dotnet build
+   
 
 7. Run the project:
 
